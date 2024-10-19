@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailor's Measurement Tool</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>De Covers Measurement Database</h1>
+            <div class="theme-toggle">
+                <label>Choose Theme: </label>
+                <select id="themeSelector">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                    <option value="pastel">Pastel</option>
+                </select>
+            </div>
+        </header>
+
+        <form id="measurementForm" enctype="multipart/form-data">
+            <h2>Enter Client's Measurements</h2>
+
+            <!-- New input for name of shirt or dress -->
+            <div class="form-group">
+                <label for="garmentName">Name of Shirt/Dress:</label>
+                <input type="text" id="garmentName" name="garmentName" placeholder="Enter garment name" required>
+            </div>
+
+            <!-- New input for phone number -->
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter phone number" required>
+            </div>
+
+            <!-- Image upload / capture -->
+            <div class="form-group">
+                <label for="clientImage">Client Image:</label>
+                <input type="file" id="clientImage" name="clientImage" accept="image/*" capture="environment">
+            </div>
+
+            <!-- Existing measurements fields -->
+            <div class="form-group">
+                <label for="clientName">Client Name:</label>
+                <input type="text" id="clientName" name="clientName" placeholder="Enter client name" required>
+            </div>
+
+            <!-- Remaining fields for measurements -->
+            <div class="form-group">
+                <label for="back">Back:</label>
+                <input type="number" id="back" name="back" required>
+            </div>
+            <div class="form-group">
+                <label for="sleeveLength">Sleeve Length:</label>
+                <input type="number" id="sleeveLength" name="sleeveLength" required>
+            </div>
+            <div class="form-group">
+                <label for="aroundArm">Around Arm:</label>
+                <input type="number" id="aroundArm" name="aroundArm" required>
+            </div>
+            <div class="form-group">
+                <label for="chest">Chest:</label>
+                <input type="number" id="chest" name="chest" required>
+            </div>
+            <div class="form-group">
+                <label for="hip">Hip:</label>
+                <input type="number" id="hip" name="hip" required>
+            </div>
+            <div class="form-group">
+                <label for="topLength">Top Length:</label>
+                <input type="number" id="topLength" name="topLength" required>
+            </div>
+            <div class="form-group">
+                <label for="waist">Waist:</label>
+                <input type="number" id="waist" name="waist" required>
+            </div>
+            <div class="form-group">
+                <label for="thigh">Thigh:</label>
+                <input type="number" id="thigh" name="thigh" required>
+            </div>
+            <div class="form-group">
+                <label for="knee">Knee:</label>
+                <input type="number" id="knee" name="knee" required>
+            </div>
+            <div class="form-group">
+                <label for="bar">Bar:</label>
+                <input type="number" id="bar" name="bar" required>
+            </div>
+            <div class="form-group">
+                <label for="trouserLength">Trouser Length:</label>
+                <input type="number" id="trouserLength" name="trouserLength" required>
+            </div>
+
+            <!-- Save and PDF buttons -->
+            <button type="button" id="saveBtn" class="primary-btn">Save Measurements</button>
+            <button type="button" id="generatePdfBtn" class="secondary-btn">Generate PDF</button>
+        </form>
+
+        <h2>Saved Measurements</h2>
+        <div id="savedData" class="measurements-list"></div>
+
+        <!-- Image Slideshow -->
+        <div id="slideshow" class="slideshow-container">
+            <h2>Client Images</h2>
+            <div class="slide fade">
+                <img src="" id="slideImage" class="slide-image">
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+    </div>
+
+    <!-- Modal for editing or viewing previous measurements -->
+    <div id="historyModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Measurement History for <span id="clientModalName"></span></h2>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+</body>
+</html>
