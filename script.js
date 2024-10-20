@@ -1,3 +1,25 @@
+
+//theme selection changer code
+const savedTheme = document.getElementById('savedData')
+
+const theme = document.getElementById('themeSelector');
+theme.addEventListener('change', function(){
+  const themeText = this.value;
+  console.log(themeText);
+
+  document.body.classList.remove('light-theme', 'dark-theme', 'pastel-theme');
+
+  if(themeText === 'light'){
+    document.body.classList.add('light-theme');
+  } else if(themeText === 'dark'){
+    document.body.classList.add('dark-theme');
+  }else if(themeText === 'pastel'){
+    document.body.classList.add('pastel-theme');
+  }
+});
+
+document.body.classList.add('light-theme');
+
 // Save button logic
 document.getElementById('saveBtn').addEventListener('click', function () {
   const form = document.forms['measurementForm'];
@@ -7,8 +29,8 @@ document.getElementById('saveBtn').addEventListener('click', function () {
   const clientImage = document.getElementById('clientImage').files[0];
 
   if (clientName === "" || !clientImage) {
-      alert("Please enter a client name and upload an image.");
-      return;
+     alert("Please enter a client name and upload an image.");
+     return;
   }
 
   // Save image to base64

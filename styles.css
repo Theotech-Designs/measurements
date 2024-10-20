@@ -89,3 +89,26 @@ p {
   text-decoration: none;
   cursor: pointer;
 }
+
+.dark-theme {
+  background-color: #121212;
+color: #ffffff;
+  --primary-color: #1e90ff;
+  --secondary-color: #88888;
+}
+
+.light-theme {
+background-color: #ffffff;
+color: #000000;
+primary-color: #007bff;
+secondary-color: #6c757d;
+
+}
+
+.pastel-theme {
+  background-color:#c8c8e5;
+ color: #3a3a3a;
+  --primary-color: f7c6c7; 
+  --secondary-color: #c4e3e2;
+
+}
